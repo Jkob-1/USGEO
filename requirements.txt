@@ -4,3 +4,4 @@ Flask-Login
 Flask-SQLAlchemy
 gunicorn
 groq
+python-dotenv
