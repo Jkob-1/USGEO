@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}
+ხელოვნური ინტელექტი
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="card shadow p-4">
+
+        <h2 class="text-center mb-4">
+            ხელოვნური ინტელექტი
+        </h2>
+
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    {% for field, errors in form.errors.items() %}
+                        {% for error in errors %}
+                            <div>{{ error }}</div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <div class="mb-3">
+                <label class="form-label">
+                    შეკითხვა
+                </label>
+
+                {{ form.question(
+                    class="form-control",
+                    rows="6",
+                    placeholder="დაუსვით შეკითხვა AI-ს..."
+                ) }}
+            </div>
+
+            <div class="text-center">
+                {{ form.submit(class="btn btn-primary px-4") }}
+            </div>
+
+        </form>
+
+        {% if answer %}
+        <hr>
+
+        <h4>AI პასუხი</h4>
+
+        <div class="border rounded p-3 bg-light" style="white-space: pre-wrap;">
+            {{ answer }}
+        </div>
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,137 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+}
+
+.navbar {
+    background-color: #0b1320 !important;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: white !important;
+    font-weight: 600;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffd6d6 !important;
+}
+
+.card-header {
+    background-color: #c1121f !important;
+    color: white !important;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    color: #0b1320;
+}
+
+h1, h2, h4, h5 {
+    color: #c1121f;
+    font-weight: bold;
+}
+h3{
+    color: #ffff;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #c1121f;
+    border-color: #c1121f;
+}
+
+.btn-primary:hover {
+    background-color: #9b0d17;
+    border-color: #9b0d17;
+}
+
+.btn-warning {
+    background-color: #c1121f;
+    border-color: #c1121f;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #9b0d17;
+    border-color: #9b0d17;
+    color: white;
+}
+
+.btn-danger {
+    background-color: #8b0000;
+}
+
+.table-dark {
+    background-color: #8f0202 !important;
+}
+
+.table thead th {
+    color: white;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #fff0f0;
+}
+
+.badge.bg-primary {
+    background-color: #c1121f !important;
+}
+
+.badge.bg-success {
+    background-color: #28a745 !important;
+}
+
+.badge.bg-warning {
+    background-color: #ffc107 !important;
+}
+
+.badge.bg-secondary {
+    background-color: #6c757d !important;
+}
+
+a {
+    color: #c1121f;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #9b0d17;
+}
+
+.form-control:focus {
+    border-color: #c1121f;
+    box-shadow: 0 0 0 0.2rem rgba(193, 18, 31, 0.2);
+}
+
+footer {
+    margin-top: 50px;
+    padding: 25px 10px;
+    background-color: #8b0000;
+    color: white;
+    text-align: center;
+    border-top: 3px solid #5c0000;
+}
+
+.footer-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.footer-subtitle {
+    font-size: 13px;
+    margin-top: 6px;
+    font-weight: bold;
+    opacity: 0.9;
+}

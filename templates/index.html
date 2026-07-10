@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card shadow-sm p-4 bg-white rounded">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>
+            {% if current_user.is_admin %}
+                ყველა მომხმარებლის ამანათები (ადმინ პანელი)
+            {% else %}
+                ჩემი ამანათები
+            {% endif %}
+        </h2>
+
+        <a href="{{ url_for('ship') }}" class="btn btn-warning fw-bold">
+            + ახალი ამანათი
+        </a>
+    </div>
+
+    {% if packages %}
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th>თრექინგ კოდი</th>
+
+                        {% if current_user.is_admin %}
+                            <th>გამგზავნი (User)</th>
+                        {% endif %}
+
+                        <th>მიმღები</th>
+                        <th>დანიშნულება</th>
+                        <th>წონა (კგ)</th>
+                        <th>სტატუსი</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for package in packages %}
+                    <tr>
+                        <td class="fw-bold text-primary">
+                            {{ package.tracking_number }}
+                        </td>
+
+                        {% if current_user.is_admin %}
+                            <td>
+                                <span class="badge bg-secondary">
+                                    {{ package.owner.username }}
+                                </span>
+                            </td>
+                        {% endif %}
+
+                        <td>{{ package.receiver_name }}</td>
+                        <td>{{ package.destination }}</td>
+                        <td>{{ package.weight }}</td>
+
+                        <td>
+                            {% if package.status == "მიღებულია საწყობში" %}
+                                <span class="badge bg-warning text-dark">
+                                    {{ package.status }}
+                                </span>
+                            {% elif package.status == "გზაშია" %}
+                                <span class="badge bg-primary">
+                                    {{ package.status }}
+                                </span>
+                            {% elif package.status == "ჩაბარებულია" %}
+                                <span class="badge bg-success">
+                                    {{ package.status }}
+                                </span>
+                            {% else %}
+                                <span class="badge bg-secondary">
+                                    {{ package.status }}
+                                </span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    {% else %}
+        <div class="text-center py-5">
+            <h4 class="text-muted mb-3">
+                ამანათები არ მოიძებნა
+            </h4>
+
+            <a href="{{ url_for('ship') }}" class="btn btn-warning btn-lg">
+                პირველი ამანათის დამატება
+            </a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
